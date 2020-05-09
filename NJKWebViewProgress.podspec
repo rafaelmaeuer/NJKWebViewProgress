@@ -1,12 +1,12 @@
 Pod::Spec.new do |s|
   s.name         = "NJKWebViewProgress"
-  s.version      = "0.2.3"
+  s.version      = "0.3.0"
   s.license      = { :type => 'MIT', :file => 'LICENSE' }
-  s.summary      = "UIWebView progress interface."
-  s.homepage     = "https://github.com/ninjinkun/NJKWebViewProgress"
+  s.summary      = "WKWebView progress interface."
+  s.homepage     = "https://github.com/rafaelmaeuer/NJKWebViewProgress"
   s.authors      = { "ninjinkun" => "ninjin@mac.com" }
-  s.source       = { :git => "https://github.com/ninjinkun/NJKWebViewProgress.git", :tag => "v#{s.version}" }
-  s.platform     = :ios, '4.3'
+  s.source       = { :git => "https://github.com/rafaelmaeuer/NJKWebViewProgress.git", :tag => "v#{s.version}" }
+  s.platform     = :ios, '8.0'
   s.requires_arc = true
   s.subspec 'Core' do |ss|
     ss.source_files = 'NJKWebViewProgress/NJKWebViewProgress.{h,m}'
