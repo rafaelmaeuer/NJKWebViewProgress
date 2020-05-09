@@ -8,9 +8,11 @@
 
 #import "ViewController.h"
 #import "NJKWebViewProgressView.h"
+
 @implementation ViewController
 {
-    IBOutlet __weak UIWebView *_webView;
+    //IBOutlet __weak UIWebView *_webView;
+    WKWebView *_webView;
     NJKWebViewProgressView *_progressView;
     NJKWebViewProgress *_progressProxy;
 }
@@ -19,8 +21,12 @@
 {
     [super viewDidLoad];
     
+    // Init WKWebView with config
+    WKWebViewConfiguration *_webViewConfig = [[WKWebViewConfiguration alloc] init];
+    _webView = [[WKWebView alloc] initWithFrame:self.view.frame configuration:_webViewConfig];
+    
     _progressProxy = [[NJKWebViewProgress alloc] init];
-    _webView.delegate = _progressProxy;
+    _webView.navigationDelegate = _progressProxy;
     _progressProxy.webViewProxyDelegate = self;
     _progressProxy.progressDelegate = self;
 
@@ -62,13 +68,14 @@
 {
     NSURLRequest *req = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:@"https://google.com/"]];
     [_webView loadRequest:req];
+    [self.view addSubview:_webView];
 }
 
 #pragma mark - NJKWebViewProgressDelegate
 -(void)webViewProgress:(NJKWebViewProgress *)webViewProgress updateProgress:(float)progress
 {
     [_progressView setProgress:progress animated:YES];
-    self.title = [_webView stringByEvaluatingJavaScriptFromString:@"document.title"];
+    self.title = _webView.title;
 }
 
 @end
