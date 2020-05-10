@@ -108,7 +108,7 @@ const float NJKFinalProgressValue = 0.9f;
 }
 
 #pragma mark -
-#pragma mark UIWebViewDelegate
+#pragma mark WKWebViewDelegate
 
 //- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
 - (void)webView:(WKWebView *)webView decidePolicyForNavigationAction:(nonnull WKNavigationAction *)navigationAction decisionHandler:(nonnull void (^)(WKNavigationActionPolicy))decisionHandler
@@ -219,7 +219,7 @@ const float NJKFinalProgressValue = 0.9f;
 
 #pragma mark - 
 #pragma mark Method Forwarding
-// for future UIWebViewDelegate impl
+// for future WKWebViewDelegate implementation
 
 - (BOOL)respondsToSelector:(SEL)aSelector
 {
