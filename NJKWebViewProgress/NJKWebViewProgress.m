@@ -110,8 +110,7 @@ const float NJKFinalProgressValue = 0.9f;
 #pragma mark -
 #pragma mark UIWebViewDelegate
 
-WKNavigationActionPolicy NavigationPolicy = WKNavigationActionPolicyAllow;
-
+//- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
 - (void)webView:(WKWebView *)webView decidePolicyForNavigationAction:(nonnull WKNavigationAction *)navigationAction decisionHandler:(nonnull void (^)(WKNavigationActionPolicy))decisionHandler
 {
     NSURLRequest *request = navigationAction.request;
@@ -121,16 +120,16 @@ WKNavigationActionPolicy NavigationPolicy = WKNavigationActionPolicyAllow;
         [self completeProgress];
         //return NO;
         decisionHandler(WKNavigationActionPolicyCancel);
+        return;
     }
     
     //BOOL ret = YES;
-    //WKNavigationActionPolicy policy = WKNavigationActionPolicyAllow;
-    NavigationPolicy = WKNavigationActionPolicyAllow;
-    //decisionHandler(WKNavigationActionPolicyAllow);
+    WKNavigationActionPolicy NavigationPolicy = WKNavigationActionPolicyAllow;
     
     if ([_webViewProxyDelegate //respondsToSelector:@selector(webView:shouldStartLoadWithRequest:navigationType:)]) {
          respondsToSelector:@selector(webView:decidePolicyForNavigationAction:decisionHandler:)]) {
         //ret = [_webViewProxyDelegate webView:webView shouldStartLoadWithRequest:request navigationType:navigationType];
+        //TODO: get result of decisionHandler from next call and save in NavigationPolicy variable
         [_webViewProxyDelegate webView:webView decidePolicyForNavigationAction:navigationAction decisionHandler:decisionHandler];
     }
     
@@ -156,7 +155,7 @@ WKNavigationActionPolicy NavigationPolicy = WKNavigationActionPolicyAllow;
 //- (void)webViewDidStartLoad:(UIWebView *)webView
 - (void)webView:(WKWebView *)webView didStartProvisionalNavigation:(WKNavigation *)navigation
 {
-    if ([_webViewProxyDelegate respondsToSelector:@selector(didStartProvisionalNavigation:)]) {
+    if ([_webViewProxyDelegate respondsToSelector:@selector(webView:didStartProvisionalNavigation:)]) {
         [_webViewProxyDelegate webView:webView didStartProvisionalNavigation:navigation];
     }
 
@@ -169,7 +168,7 @@ WKNavigationActionPolicy NavigationPolicy = WKNavigationActionPolicyAllow;
 //- (void)webViewDidFinishLoad:(UIWebView *)webView
 - (void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation
 {
-    if ([_webViewProxyDelegate respondsToSelector:@selector(webViewDidFinishLoad:navigation:)]) {
+    if ([_webViewProxyDelegate respondsToSelector:@selector(webView:didFinishNavigation:)]) {
         [_webViewProxyDelegate webView:webView didFinishNavigation:navigation];
     }
     
