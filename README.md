@@ -61,7 +61,7 @@ This repository contains iOS 7 Safari style bar `NJKWebViewProgressView`. You ca
 ### CocoaPods
 
 ```sh
-pod 'NJKWebViewProgress'
+pod 'NJKWebViewProgress', :git => 'https://github.com/rafaelmaeuer/NJKWebViewProgress.git'
 ```
 
 ## License
