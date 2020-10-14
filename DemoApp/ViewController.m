@@ -12,7 +12,7 @@
 @implementation ViewController
 {
     //IBOutlet __weak UIWebView *_webView;
-    WKWebView *_webView;
+    IBOutlet WKWebView *_webView;
     NJKWebViewProgressView *_progressView;
     NJKWebViewProgress *_progressProxy;
 }
