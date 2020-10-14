@@ -13,7 +13,7 @@ NJKWebViewProgress doesn't use CocoaTouch's private methods. It's AppStore safe.
 
 ## Requirements
 
-- iOS 8.0 or later
+- iOS 12.0 or later
 - ARC
 
 ## Usage
