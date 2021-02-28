@@ -24,6 +24,12 @@
     // Init WKWebView with config
     WKWebViewConfiguration *_webViewConfig = [[WKWebViewConfiguration alloc] init];
     _webView = [[WKWebView alloc] initWithFrame:self.view.frame configuration:_webViewConfig];
+        
+    if (@available(iOS 13.0, *)) {
+        _webView.opaque = NO;
+        _webView.backgroundColor = [UIColor systemBackgroundColor];
+        _webView.scrollView.backgroundColor = [UIColor systemBackgroundColor];
+    }
     
     _progressProxy = [[NJKWebViewProgress alloc] init];
     _webView.navigationDelegate = _progressProxy;
@@ -66,7 +72,7 @@
 
 -(void)loadGoogle
 {
-    NSURLRequest *req = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:@"https://google.com/"]];
+    NSURLRequest *req = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:@"https://duckduckgo.com"]];
     [_webView loadRequest:req];
     [self.view addSubview:_webView];
 }

@@ -2,16 +2,23 @@
 
 NJKWebViewProgress was a progress interface library for UIWebView, as it doesn't had official progress interface in iOS 7. This version is updated to use WKWebView instead, to let old projects pass AppStore-Upload with UIWebView deprecation. You can implement progress bar for your in-app browser using this module.
 
-<img src="./DemoApp/Screenshot/screenshot1.png" alt="iOS ScreenShot 1" width="240px" style="width: 240px;" />
+<img src="./DemoApp/Screenshot/NJKProgressLight.png" alt="iOS ScreenShot 1" width="240px" style="width: 240px;" />
+<img src="./DemoApp/Screenshot/NJKProgressDark.png" alt="iOS ScreenShot 1" width="240px" style="width: 240px;" />
 
 NJKWebViewProgress doesn't use CocoaTouch's private methods. It's AppStore safe.
 
-## Used in Production
+## Info
 
-- [Yahoo! JAPAN](https://itunes.apple.com/app/yahoo!-japan/id299147843?mt=8)
-- [Facebook](https://itunes.apple.com/app/facebook/id284882215?mt=8‎)
+Version 0.3.3
 
-## Requirements
+### Features
+
+- Loading progress
+- Download progress
+- WKWebView
+- Dark Mode
+
+### Requirements
 
 - iOS 12.0 or later
 - ARC
@@ -63,6 +70,11 @@ This repository contains iOS 7 Safari style bar `NJKWebViewProgressView`. You ca
 ```sh
 pod 'NJKWebViewProgress', :git => 'https://github.com/rafaelmaeuer/NJKWebViewProgress.git'
 ```
+
+## Used in Production
+
+- [Yahoo! JAPAN](https://itunes.apple.com/app/yahoo!-japan/id299147843?mt=8)
+- [Facebook](https://itunes.apple.com/app/facebook/id284882215?mt=8‎)
 
 ## License
 
